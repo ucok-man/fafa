@@ -1,0 +1,21 @@
+[
+  {
+    "projectName": { "type": "string" },
+    "manager": {
+      "name": {
+        "type": "string",
+        "context": "Name of project leader."
+      }
+    },
+    "team": [{ "type": "string", "context": "Team person name" }]
+  },
+
+  {
+    "projectName": "Project Alpha",
+    "isCompleted": true,
+    "manager": {
+      "name": "Sarah Chen"
+    },
+    "team": ["Ben", "Rita"]
+  }
+]

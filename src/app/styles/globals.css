@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-recursive: var(--font-recursive);
+  --font-patrick: var(--font-patrick);
+}

@@ -51,28 +51,28 @@ export async function POST(req: NextRequest) {
 
             ### Target JSON Schema:
             {
-            "projectName": { "type": "string" },
-            "isCompleted": { "type": "boolean" },
-            "manager": {
-                "name": { "type": "string", "context": "Full name of the project leader." },
-                "email": { "type": "string" }
-            },
-            "team": [
-                {
-                "name": { "type": "string" },
-                "role": { "type": "string", "context": "e.g., lead dev, intern" }
-                }
-            ],
-            "technicalSpecs": {
-                "backend": { "type": "string", "context": "The primary backend technology" },
-                "frontend": { "type": "string", "context": "The primary frontend framework" }
-            },
-            "tags": [
-                { "type": "string" }
-            ],
-            "deploymentBatches": [
-                [ { "type": "string" } ]
-            ]
+              "projectName": { "type": "string" },
+              "isCompleted": { "type": "boolean" },
+              "manager": {
+                  "name": { "type": "string", "context": "Full name of the project leader." },
+                  "email": { "type": "string" }
+              },
+              "team": [
+                  {
+                  "name": { "type": "string" },
+                  "role": { "type": "string", "context": "e.g., lead dev, intern" }
+                  }
+              ],
+              "technicalSpecs": {
+                  "backend": { "type": "string", "context": "The primary backend technology" },
+                  "frontend": { "type": "string", "context": "The primary frontend framework" }
+              },
+              "tags": [
+                  { "type": "string" }
+              ],
+              "deploymentBatches": [
+                  [ { "type": "string" } ]
+              ]
             }
 
             ### Expected JSON Output:

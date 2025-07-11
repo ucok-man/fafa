@@ -1,6 +1,13 @@
 import z from "zod";
 import { JsonFormat } from "./types/json-format-type";
 
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
 export const jsonFormatSchemaToZod = (schema: JsonFormat): z.ZodType => {
   const type = typeof schema;
 
