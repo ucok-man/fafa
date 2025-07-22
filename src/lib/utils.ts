@@ -1,44 +1,25 @@
-import z from "zod";
-import { JsonFormat } from "./types/json-format-type";
-
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import z, { ZodError } from "zod";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const jsonFormatSchemaToZod = (schema: JsonFormat): z.ZodType => {
-  const type = typeof schema;
+export function extractZodErrorMessage(error: ZodError): string {
+  const fmterr = z.formatError(error);
 
-  switch (type) {
-    case "string":
-      return z.string().nullable();
-    case "number":
-      return z.number().nullable();
-    case "boolean":
-      return z.boolean().nullable();
-    case "object": // -> this type can be plain object or array
-      /* ------------------------ case when array ----------------------- */
-      if (Array.isArray(schema)) {
-        if (!schema.length)
-          throw new Error(
-            "Error format schema - array defined but has no items"
-          );
+  const iterate = (obj: any): string => {
+    if (obj?._errors?.length) {
+      return obj._errors[0] as string;
+    }
+    for (const key in obj) {
+      if (key === "_errors") continue;
+      return iterate(obj[key]);
+    }
+    throw new Error("NO ERROR EXIST FROM ZOD ERROR");
+  };
 
-        return z.array(jsonFormatSchemaToZod(schema[0]));
-      }
-
-      /* -------------------- case when plain object -------------------- */
-      const shape: Record<string, z.ZodType> = {};
-      for (const key in schema) {
-        if (key !== "type") {
-          shape[key] = jsonFormatSchemaToZod(schema[key] as JsonFormat);
-        }
-      }
-      return z.object(shape);
-
-    default:
-      throw new Error(`Error format schema - unsupported data type ${type}`);
-  }
-};
+  return iterate(fmterr);
+}
