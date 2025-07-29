@@ -68,7 +68,7 @@ export async function POST(req: NextRequest) {
       }
     );
 
-    return NextResponse.json(jsonformat, { status: 200 });
+    return NextResponse.json({ result: jsonformat }, { status: 200 });
   } catch (error) {
     return HTTPResponse.error(StatusCode.INTERNAL_SERVER_ERROR, {
       code: Code.INTERNAL_SERVER,
@@ -100,7 +100,7 @@ async function askgemini(dto: z.infer<typeof DTOSchema>) {
   
               ---
   
-              ## 🚀 Advanced Example
+              ## Example
   
               ### Input Data:
               "Project Alpha's final report: The initiative, led by manager Sarah Chen, is now complete. The core development team included Tom, the lead dev, and an intern, Ben. The UI/UX work was handled by an external consultant, Rita. We deployed in two main batches; the first contained builds 1.0.1 and 1.0.2. The second, smaller batch just had build 1.1.0. The backend is built on Node.js and the frontend uses React. This project was tagged for 'Q4' and 'internal-tool'."

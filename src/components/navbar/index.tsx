@@ -9,7 +9,7 @@ export default function Navbar() {
         className="flex gap-1 items-center w-full justify-start text-2xl"
       >
         <Code2 className="size-7 fill-red-700" />
-        <span className="text-green-500">Anyhow</span>
+        <span className="text-red-800">Anyhow</span>
       </Link>
     </nav>
   );

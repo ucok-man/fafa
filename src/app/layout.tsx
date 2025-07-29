@@ -1,6 +1,7 @@
 import "@/app/styles/globals.css";
 import type { Metadata } from "next";
 import { Patrick_Hand, Recursive } from "next/font/google";
+import { Toaster } from "sonner";
 
 const recursive = Recursive({
   variable: "--font-recursive",
@@ -26,8 +27,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${recursive.variable} ${patrick.variable} antialiased`}>
+      <body
+        className={`${recursive.variable} ${patrick.variable} antialiased grainy-dark`}
+      >
         {children}
+        <Toaster />
       </body>
     </html>
   );
