@@ -58,6 +58,7 @@ export default function PlaygroundPage() {
       const endTime = Date.now();
       setResponse(JSON.stringify(data.result, null, 2));
       setLastRequestTime(endTime - startTime);
+      setStatusCode(200);
     } catch (err) {
       if (err instanceof SyntaxError) {
         // handles JSON.parse errors
@@ -193,7 +194,12 @@ export default function PlaygroundPage() {
             </Button>
 
             {lastRequestTime && !isLoading && (
-              <Badge variant="secondary" className="gap-1">
+              <Badge
+                variant="secondary"
+                className={cn(
+                  lastRequestTime > 5000 ? "text-red-500" : "text-green-600"
+                )}
+              >
                 <CheckCircle className="h-3 w-3" />
                 {lastRequestTime}ms
               </Badge>

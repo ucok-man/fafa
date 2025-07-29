@@ -2,8 +2,12 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 // import { toast } from "@/hooks/use-toast";
+import { cn } from "@/lib/utils";
 import { Editor, Monaco } from "@monaco-editor/react";
 import { Code, Copy } from "lucide-react";
+import babel from "prettier/plugins/babel";
+import estree from "prettier/plugins/estree";
+import prettier from "prettier/standalone";
 import { useState } from "react";
 import { toast } from "sonner";
 import OneDarkPro from "./one-dark-pro.json";
@@ -13,7 +17,7 @@ type Props = {
   subtitle?: string;
   value: string;
   onChange?: (value: string) => void;
-  language?: string;
+  language?: "json" | "plaintext";
   readOnly?: boolean;
   placeholder?: string;
   height?: string;
@@ -52,7 +56,20 @@ export default function CodeEditor({
     }
   };
 
-  const handleFormat = () => {};
+  const handleFormat = async () => {
+    try {
+      const formattedCode = await prettier.format(value, {
+        parser: "json-stringify",
+        plugins: [babel, estree],
+        semi: true,
+        trailingComma: "all",
+      });
+      onChange?.(formattedCode || "");
+    } catch (error) {
+      console.log({ error });
+      toast.error("Failed to format code. Please try again!");
+    }
+  };
 
   return (
     <section className="border overflow-hidden rounded-lg">
@@ -64,7 +81,13 @@ export default function CodeEditor({
           )}
         </div>
         <div className="flex items-center gap-2">
-          <Badge variant="secondary" className="text-xs">
+          <Badge
+            variant="secondary"
+            className={cn("text-xs", {
+              "text-yellow-500": language === "json",
+              "text-green-500": language === "plaintext",
+            })}
+          >
             {language.toUpperCase()}
           </Badge>
           {showActions && value && (

@@ -1,4 +1,5 @@
 import "@/app/styles/globals.css";
+import { AlertCircle, CheckCircle } from "lucide-react";
 import type { Metadata } from "next";
 import { Patrick_Hand, Recursive } from "next/font/google";
 import { Toaster } from "sonner";
@@ -31,7 +32,20 @@ export default function RootLayout({
         className={`${recursive.variable} ${patrick.variable} antialiased grainy-dark`}
       >
         {children}
-        <Toaster />
+        <Toaster
+          richColors
+          toastOptions={{
+            classNames: {
+              error: "bg-red-400 text-white border-red-400",
+              success: "bg-green-400 text-white border-green-400",
+              // You can also add other toast types like warning, info, etc.
+            },
+          }}
+          icons={{
+            success: <CheckCircle className="h-5 w-5" />,
+            error: <AlertCircle className="h-5 w-5" />,
+          }}
+        />
       </body>
     </html>
   );
