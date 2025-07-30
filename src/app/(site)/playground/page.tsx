@@ -102,7 +102,7 @@ export default function PlaygroundPage() {
   };
 
   return (
-    <div className="pb-4">
+    <div className="py-8">
       {/* Header */}
       <MaxWidthWrapper className="flex flex-col items-center gap-y-6 mb-8">
         <div className="w-full flex justify-between items-center max-sm:flex-col max-sm:gap-y-6">
@@ -113,7 +113,7 @@ export default function PlaygroundPage() {
           <BtnLinkPrimary
             href="/apidocs"
             variant="red"
-            className="flex gap-1 max-[480]:w-full items-center justify-center font-patrick max-sm:py-2 text-2xl! max-sm:text-2xl!"
+            className="flex gap-1 max-[480]:w-full items-center justify-center font-patrick max-sm:py-2 text-xl! max-sm:text-xl!"
           >
             See The Api <ArrowRight />
           </BtnLinkPrimary>
