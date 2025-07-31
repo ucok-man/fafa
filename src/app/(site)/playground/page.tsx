@@ -115,7 +115,7 @@ export default function PlaygroundPage() {
             variant="red"
             className="flex gap-1 max-[480]:w-full items-center justify-center font-patrick max-sm:py-2 text-xl! max-sm:text-xl!"
           >
-            See The Api <ArrowRight />
+            Explore Api <ArrowRight />
           </BtnLinkPrimary>
         </div>
 

@@ -25,7 +25,7 @@ export default function DataTable({ title, headers, rows }: Props) {
           <TableRow>
             {headers.map((header, index) => (
               <TableHead
-                className="text-sm font-medium text-slate-700"
+                className="text-sm font-semibold text-slate-700"
                 key={index}
               >
                 {header}
