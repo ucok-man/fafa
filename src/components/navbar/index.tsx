@@ -36,7 +36,7 @@ export default function Navbar() {
         className="flex gap-1.5 items-center w-full justify-start text-2xl"
       >
         <Code2 className="size-7 fill-red-700" />
-        <span className="text-red-800">Reform</span>
+        <span className="text-red-800">Fafa</span>
       </Link>
     </nav>
   );
