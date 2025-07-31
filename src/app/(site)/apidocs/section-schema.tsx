@@ -12,17 +12,20 @@ export default function SectionSchema() {
 
 // 02. To define a value for a field of object or item of array, 
 // use \`type\` and optional \`context\` field wrapped in an object.
-{"type": "any primitive type", "context": "optional context for better understanding"}
+
+{"type": /* any primitive type */, "context": "optional context for better understanding"}
 
 --------------------------------------------------------------------------------------
 
 // 03. Minimal basic example.
 // You can omit \`context\` if the fieldname already representative.
+
 {"name": {"type": "string"} 
 
 --------------------------------------------------------------------------------------
 
 // 04. Example nested object.
+
 {
   "outerfield": {"type": "string", "context": "..."},
   "section": {
@@ -34,6 +37,7 @@ export default function SectionSchema() {
 
 // 05. Example basic array.
 // This will output [ "item1", "item2" ];
+
 {
   "items": [{"type":"string", "context": "the age of cat"}]
 }
@@ -42,6 +46,7 @@ export default function SectionSchema() {
 
 // 06. Example nested array.
 // This will output: [ ["items1"], ["items2"] ]
+
 {
   "items": [
     [{"type":"number", "context": "the age of cat"}],
@@ -51,6 +56,7 @@ export default function SectionSchema() {
 --------------------------------------------------------------------------------------
 
 // 07. Example array of an object
+
 {
   "field": {
     "items": [{
@@ -88,7 +94,7 @@ export default function SectionSchema() {
             format
           </span>{" "}
           parameter defines the structure and data types for the expected JSON
-          output. Each field requires a{" "}
+          output. Each field or an item in array requires a{" "}
           <span className="bg-slate-300 p-1 px-2 text-slate-700 rounded-lg text-sm">
             type
           </span>{" "}

@@ -22,6 +22,7 @@ const NAVIGATION_ITEMS = [
 export default function NavigationSidebar() {
   const [open, setOpen] = useState(false);
   const activeSectionId = useVisibleSection(NAVIGATION_ITEMS);
+  console.log({ activeSectionId });
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -88,16 +89,16 @@ function NavigationContent({
 }: NavigationContentProps) {
   return (
     <div className="p-4">
-      <h3 className="font-semibold text-foreground mb-4">Contents</h3>
+      <h3 className="font-semibold text-foreground mb-4">Table of Contents</h3>
       <nav className="space-y-1">
         {items.map((item) => (
           <Button
             key={item.id}
             variant="ghost"
-            className={`w-full justify-start text-left h-auto py-2 px-3 ${
+            className={`w-full justify-start text-left h-auto py-2 px-3 hover:border-l-2 hover:border-yellow-600 hover:bg-yellow-600/10 ${
               activeSectionId === item.id
-                ? "bg-slate-700/10 text-slate-700 border-l-2 border-slate-700"
-                : "text-muted-foreground hover:text-foreground"
+                ? "bg-yellow-600/10 text-slate-700 border-l-2 border-yellow-600"
+                : "text-muted-foreground hover:text-slate-700"
             }`}
             onClick={() => onClick(item)}
           >

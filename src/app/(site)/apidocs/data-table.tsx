@@ -1,4 +1,11 @@
-import { Separator } from "@/components/ui/separator";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { ReactNode } from "react";
 
 type Props = {
@@ -8,40 +15,37 @@ type Props = {
 };
 
 export default function DataTable({ title, headers, rows }: Props) {
-  // Dynamically set the number of columns based on the headers provided.
-  const gridColsClass = `md:grid-cols-${headers.length}`;
-
   return (
     <div className="rounded-lg w-full">
       {title && (
         <h3 className="text-lg font-semibold text-slate-800 mb-6">{title}</h3>
       )}
-      <div className="space-y-4">
-        {/* Header Row */}
-        <div
-          className={`grid grid-cols-1 ${gridColsClass} gap-4 text-sm font-medium text-slate-700`}
-        >
-          {headers.map((header, index) => (
-            <div key={index}>{header}</div>
-          ))}
-        </div>
-
-        <Separator />
-
-        {/* Body Rows are mapped from the `rows` prop */}
-        <div className="space-y-4">
+      <Table>
+        <TableHeader>
+          <TableRow>
+            {headers.map((header, index) => (
+              <TableHead
+                className="text-sm font-medium text-slate-700"
+                key={index}
+              >
+                {header}
+              </TableHead>
+            ))}
+          </TableRow>
+        </TableHeader>
+        <TableBody>
           {rows.map((row, rowIndex) => (
-            <div
+            <TableRow
               key={rowIndex}
-              className={`grid grid-cols-1 ${gridColsClass} gap-4 text-sm items-center`}
+              className={`text-sm items-center text-slate-600`}
             >
               {row.map((cell, cellIndex) => (
-                <div key={cellIndex}>{cell}</div>
+                <TableCell key={cellIndex}>{cell}</TableCell>
               ))}
-            </div>
+            </TableRow>
           ))}
-        </div>
-      </div>
+        </TableBody>
+      </Table>
     </div>
   );
 }

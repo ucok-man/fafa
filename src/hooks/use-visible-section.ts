@@ -14,7 +14,7 @@ export function useVisibleSection(sections: Array<{ id: string }>) {
     // A common and more flexible approach is to find the section
     // that is currently closest to the top of the viewport or crossing a
     // certain threshold (e.g., the vertical center of the screen).
-    const viewportCenter = window.innerHeight / 2;
+    const viewportCenter = window.innerHeight / 5;
 
     const firstVisibleSection = sections.find((section) => {
       const element = document.getElementById(section.id);
@@ -36,7 +36,7 @@ export function useVisibleSection(sections: Array<{ id: string }>) {
     // This is optional, depending on desired behavior.
     else if (!firstVisibleSection && visibleSectionId) {
       // You could set it to the first section's ID as a default.
-      setVisibleSectionId(sections[0]?.id);
+      // setVisibleSectionId(sections[0]?.id); Revert to dont do anything
     }
   }, [sections, visibleSectionId]); // Rerun if sections or the current ID changes.
 

@@ -26,47 +26,18 @@ export default function SectionEndpoint() {
   ];
   const ENDPOINT = `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/json`;
   const METHOD = "POST";
-  //   const RESPONSE_SUCCESS_EXAMPLE = `{
-  //     "result": {
-  //       "projectName": "Project Alpha",
-  //       "isCompleted": true,
-  //       "manager": {
-  //         "name": "Sarah Chen",
-  //         "email": null
-  //       },
-  //       "team": [
-  //         {
-  //           "name": "Tom",
-  //           "role": "lead dev"
-  //         },
-  //         {
-  //           "name": "Ben",
-  //           "role": "intern"
-  //         }
-  //       ]
-  //     }
-  //   }`;
 
   return (
     <SectionWrapper title="Endpoint" id="endpoint">
       <div className="space-y-6">
-        <div className="flex items-center gap-4 p-4 grainy-dark border/80 rounded-lg">
+        <div className="flex items-center gap-4 p-4 bg-blue-100 border/80 rounded-lg overflow-x-scroll">
           <MethodBadge method={METHOD} />
-          <code className="flex-1 text-lg font-mono">{ENDPOINT}</code>
+          <code className="flex-1 text-lg font-mono font-medium">
+            {ENDPOINT}
+          </code>
         </div>
 
         <DataTable title="Request Body" headers={HEADERS} rows={ROWS} />
-
-        {/* <div>
-          <h3 className="text-lg font-semibold text-slate-700 mb-4">
-            Response
-          </h3>
-          <div className="flex items-center gap-2 mb-4">
-            <StatusBadge status={200} />
-            <span className="text-slate-500">Successful parsing</span>
-          </div>
-          <CodeBlock code={RESPONSE_SUCCESS_EXAMPLE} language="json" />
-        </div> */}
       </div>
     </SectionWrapper>
   );
