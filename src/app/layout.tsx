@@ -16,7 +16,7 @@ const patrick = Patrick_Hand({
 });
 
 export const metadata: Metadata = {
-  title: "Anyhow",
+  title: "Reform",
   description:
     "Tools for converting any structure of data into json format you like",
 };

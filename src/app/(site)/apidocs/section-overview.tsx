@@ -7,7 +7,7 @@ export default function SectionOverview() {
     <SectionWrapper title="Overview" id="overview">
       <div className="space-y-6">
         <p className="text-base text-slate-700 leading-relaxed">
-          Anyhow API uses advanced AI to transform unstructured text into
+          Reform API uses advanced AI to transform unstructured text into
           structured JSON objects based on your specified schema. Perfect for
           extracting structured data from any text content.
         </p>

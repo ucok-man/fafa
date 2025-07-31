@@ -18,10 +18,10 @@ export default function Navbar() {
     >
       <Link
         href={"/"}
-        className="flex gap-1 items-center w-full justify-start text-2xl"
+        className="flex gap-1.5 items-center w-full justify-start text-2xl"
       >
         <Code2 className="size-7 fill-red-700" />
-        <span className="text-red-800">Anyhow</span>
+        <span className="text-red-800">Reform</span>
       </Link>
     </nav>
   );
