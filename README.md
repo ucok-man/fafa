@@ -1,36 +1,151 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fafa - JSON data conversion
 
-## Getting Started
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
-First, run the development server:
+> 🚀 Open Source API Service to transform any unstructured data into clean, valid JSON with custom schema definitions.
+
+## 🔗 Links
+
+- **Documentation**: [https://<DEPLOYMENT-DOMAIN>/apidocs](https://<DEPLOYMENT-DOMAIN>/apidocs)
+- **Playground**: [https://<DEPLOYMENT-DOMAIN>/playground](https://<DEPLOYMENT-DOMAIN>/playground)
+
+## 🔧 API Usage
+
+### Curl Example
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+curl -X POST http://<DEPLOYMENT-DOMAIN>/api/v1/json \
+  -H "Content-Type: application/json" \
+  -d '{
+    "data": "John Doe, age 30, works as Software Engineer at TechCorp",
+    "format": {
+      "name": { "type": "string" },
+      "age": { "type": "number" },
+      "position": { "type": "string" },
+      "company": { "type": "string" }
+    }
+  }'
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Response:**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```json
+{
+  "result": {
+    "name": "John Doe",
+    "age": 30,
+    "position": "Software Engineer",
+    "company": "TechCorp"
+  }
+}
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Javascript Example
 
-## Learn More
+```javascript
+const response = await fetch("https://<DEPLOYMENT-DOMAIN>/api/v1/json", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    data: `Project Alpha Report:
+           Manager: Sarah Chen (sarah@company.com)
+           Team: Tom (Lead Dev), Ben (Intern), Rita (Designer)
+           Status: Completed
+           Tech Stack: Node.js backend, React frontend
+           Tags: Q4, internal-tool`,
+    format: {
+      projectName: { type: "string" },
+      manager: {
+        name: { type: "string" },
+        email: { type: "string" },
+      },
+      team: [
+        {
+          name: { type: "string" },
+          role: { type: "string" },
+        },
+      ],
+      isCompleted: { type: "boolean" },
+      techStack: {
+        backend: { type: "string" },
+        frontend: { type: "string" },
+      },
+      tags: [{ type: "string" }],
+    },
+  }),
+});
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 📋 Schema Format Guide
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Supported Data Types
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Type      | Description       | Example              |
+| --------- | ----------------- | -------------------- |
+| `string`  | Text values       | `"John Doe"`         |
+| `number`  | Numeric values    | `42`, `3.14`         |
+| `boolean` | True/false values | `true`, `false`      |
+| `object`  | Nested objects    | `{"key": "value"}`   |
+| `array`   | Lists of items    | `["item1", "item2"]` |
+| `null`    | Missing values    | `null`               |
 
-## Deploy on Vercel
+### Schema Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```typescript
+{
+  // Simple field
+  "fieldName": { "type": "string" },
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+  // Field with context for better AI understanding
+  "email": {
+    "type": "string",
+    "context": "Primary email address"
+  },
+
+  // Nested object
+  "address": {
+    "street": { "type": "string" },
+    "city": { "type": "string" },
+    "zipCode": { "type": "number" }
+  },
+
+  // Array of primitives
+  "tags": [{ "type": "string" }],
+
+  // Array of objects
+  "team": [{
+    "name": { "type": "string" },
+    "role": { "type": "string" }
+  }],
+
+  // Nested arrays
+  "batches": [[{ "type": "string" }]]
+}
+```
+
+## 📊 Error Handling
+
+The API provides detailed error responses:
+
+| Status Code | Error Code            | Description                  |
+| ----------- | --------------------- | ---------------------------- |
+| `400`       | `SYNTAX_ERROR`        | Invalid JSON in request body |
+| `422`       | `INVALID_JSON_FORMAT` | Invalid request parameters   |
+| `500`       | `INTERNAL_SERVER`     | Server processing error      |
+
+**Error Response Format:**
+
+```json
+{
+  "code": "INVALID_JSON_FORMAT",
+  "message": "format field must be valid object and required"
+}
+```
+
+<div align="center">
+
+**[⭐ Star this repo](https://github.com/yourusername/json-conversion-api)** if you found it helpful!
+
+Made with ❤️ by [Ucok Man](https://github.com/yourusername)
+
+</div>
