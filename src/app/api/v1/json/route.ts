@@ -8,7 +8,7 @@ import { extractZodErrorMessage } from "@/lib/utils";
 import { NextRequest, NextResponse } from "next/server";
 import z from "zod";
 
-export const DTOSchema = z.object({
+const DTOSchema = z.object({
   data: z
     .string({ error: "`data` field must be valid string and required" })
     .trim(),
