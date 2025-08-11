@@ -6,15 +6,15 @@
 
 ## 🔗 Links
 
-- **Documentation**: [https://<DEPLOYMENT-DOMAIN>/apidocs](https://<DEPLOYMENT-DOMAIN>/apidocs)
-- **Playground**: [https://<DEPLOYMENT-DOMAIN>/playground](https://<DEPLOYMENT-DOMAIN>/playground)
+- **Documentation**: [https://fafa-tau.vercel.app/apidocs](https://fafa-tau.vercel.app/apidocs)
+- **Playground**: [https://fafa-tau.vercel.app/playground](https://fafa-tau.vercel.app/playground)
 
 ## 🔧 API Usage
 
 ### Curl Example
 
 ```bash
-curl -X POST http://<DEPLOYMENT-DOMAIN>/api/v1/json \
+curl -X POSThttps://fafa-tau.vercel.app/api/v1/json \
   -H "Content-Type: application/json" \
   -d '{
     "data": "John Doe, age 30, works as Software Engineer at TechCorp",
@@ -43,7 +43,7 @@ curl -X POST http://<DEPLOYMENT-DOMAIN>/api/v1/json \
 ### Javascript Example
 
 ```javascript
-const response = await fetch("https://<DEPLOYMENT-DOMAIN>/api/v1/json", {
+const response = await fetch("https://fafa-tau.vercel.app/api/v1/json", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({
@@ -144,8 +144,8 @@ The API provides detailed error responses:
 
 <div align="center">
 
-**[⭐ Star this repo](https://github.com/yourusername/json-conversion-api)** if you found it helpful!
+**[⭐ Star this repo](https://github.com/ucok-man/json-conversion-api)** if you found it helpful!
 
-Made with ❤️ by [Ucok Man](https://github.com/yourusername)
+Made with ❤️ by [Ucok Man](https://github.com/ucok-man)
 
 </div>
