@@ -6,15 +6,15 @@
 
 ## 🔗 Links
 
-- **Documentation**: [fafa.ucokman.web.id/apidocs](fafa.ucokman.web.id/apidocs)
-- **Playground**: [fafa.ucokman.web.id/playground](fafa.ucokman.web.id/playground)
+- **Documentation**: [https://fafa.ucokman.web.id/apidocs](https://fafa.ucokman.web.id/apidocs)
+- **Playground**: [https://fafa.ucokman.web.id/playground](https://fafa.ucokman.web.id/playground)
 
 ## 🔧 API Usage
 
 ### Curl Example
 
 ```bash
-curl -X POST fafa.ucokman.web.id/api/v1/json \
+curl -X POST https://fafa.ucokman.web.id/api/v1/json \
   -H "Content-Type: application/json" \
   -d '{
     "data": "John Doe, age 30, works as Software Engineer at TechCorp",
@@ -43,7 +43,7 @@ curl -X POST fafa.ucokman.web.id/api/v1/json \
 ### Javascript Example
 
 ```javascript
-const response = await fetch("fafa.ucokman.web.id/api/v1/json", {
+const response = await fetch("https://fafa.ucokman.web.id/api/v1/json", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({
