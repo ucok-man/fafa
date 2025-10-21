@@ -6,15 +6,15 @@
 
 ## 🔗 Links
 
-- **Documentation**: [https://fafa-tau.vercel.app/apidocs](https://fafa-tau.vercel.app/apidocs)
-- **Playground**: [https://fafa-tau.vercel.app/playground](https://fafa-tau.vercel.app/playground)
+- **Documentation**: [fafa.ucokman.web.id/apidocs](fafa.ucokman.web.id/apidocs)
+- **Playground**: [fafa.ucokman.web.id/playground](fafa.ucokman.web.id/playground)
 
 ## 🔧 API Usage
 
 ### Curl Example
 
 ```bash
-curl -X POSThttps://fafa-tau.vercel.app/api/v1/json \
+curl -X POST fafa.ucokman.web.id/api/v1/json \
   -H "Content-Type: application/json" \
   -d '{
     "data": "John Doe, age 30, works as Software Engineer at TechCorp",
@@ -43,7 +43,7 @@ curl -X POSThttps://fafa-tau.vercel.app/api/v1/json \
 ### Javascript Example
 
 ```javascript
-const response = await fetch("https://fafa-tau.vercel.app/api/v1/json", {
+const response = await fetch("fafa.ucokman.web.id/api/v1/json", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({
@@ -141,11 +141,3 @@ The API provides detailed error responses:
   "message": "format field must be valid object and required"
 }
 ```
-
-<div align="center">
-
-**[⭐ Star this repo](https://github.com/ucok-man/json-conversion-api)** if you found it helpful!
-
-Made with ❤️ by [Ucok Man](https://github.com/ucok-man)
-
-</div>

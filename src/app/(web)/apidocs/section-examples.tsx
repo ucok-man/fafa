@@ -25,7 +25,7 @@ export default function SectionExample() {
   }
 }`;
 
-  const CURL_REQUEST_EXAMPLE = `curl -X POST https://api.yourservice.com/parse \\
+  const CURL_REQUEST_EXAMPLE = `curl -X POST https://fafa.ucokman.web.id/api/v1/json \\
       -H "Content-Type: application/json" \\
       -d '${REQUEST_EXAMPLE.replace(/\n/g, " ").replace(/\s+/g, " ")}'`;
 

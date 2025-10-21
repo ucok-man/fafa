@@ -41,14 +41,14 @@ export default function HomePage() {
             variant="green"
             className="w-full text-lg! sm:w-auto md:text-xl!"
           >
-            Try It Now!
+            Playground
           </BtnLinkPrimary>
           <BtnLinkPrimary
             href={CTA_LINKS.apiDocs}
             variant="red"
             className="flex w-full items-center justify-center gap-1 text-lg! sm:w-auto md:text-xl!"
           >
-            Explore API <ArrowRight className="h-5 w-5" />
+            API Docs <ArrowRight className="h-5 w-5" />
           </BtnLinkPrimary>
         </div>
       </MaxWidthWrapper>
