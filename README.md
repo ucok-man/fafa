@@ -16,26 +16,30 @@
 ```bash
 curl -X POST https://fafa.ucokman.web.id/api/v1/json \
   -H "Content-Type: application/json" \
-  -d '{
-    "data": "John Doe, age 30, works as Software Engineer at TechCorp",
-    "format": {
-      "name": { "type": "string" },
-      "age": { "type": "number" },
-      "position": { "type": "string" },
-      "company": { "type": "string" }
-    }
-  }'
+  -d '{"data":"Project Alpha final report: The initiative, led by manager Sarah Chen, is now complete. The core development team included Tom, the lead dev, and an intern, Ben.","format":{"projectName":{"type":"string"},"isCompleted":{"type":"boolean"},"manager":{"name":{"type":"string","context":"Full name of the project leader."},"email":{"type":"string"}},"team":[{"name":{"type":"string"},"role":{"type":"string","context":"e.g., lead dev, intern"}}]}}'
 ```
 
-**Response:**
+**Example Response:**
 
 ```json
 {
   "result": {
-    "name": "John Doe",
-    "age": 30,
-    "position": "Software Engineer",
-    "company": "TechCorp"
+    "projectName": "Project Alpha",
+    "isCompleted": true,
+    "manager": {
+      "name": "Sarah Chen",
+      "email": null
+    },
+    "team": [
+      {
+        "name": "Tom",
+        "role": "lead dev"
+      },
+      {
+        "name": "Ben",
+        "role": "intern"
+      }
+    ]
   }
 }
 ```
@@ -133,7 +137,7 @@ The API provides detailed error responses:
 | `422`       | `INVALID_JSON_FORMAT` | Invalid request parameters   |
 | `500`       | `INTERNAL_SERVER`     | Server processing error      |
 
-**Error Response Format:**
+**Error Response Example:**
 
 ```json
 {
