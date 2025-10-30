@@ -16,9 +16,63 @@ const patrick = Patrick_Hand({
 });
 
 export const metadata: Metadata = {
-  title: "Fafa",
+  title: "Fafa - AI-Powered Data Extraction & JSON Transformation API",
   description:
-    "Tools for converting any structure of data into json format you like",
+    "Transform unstructured data into structured JSON with AI. Extract information from text, documents, and convert it into your desired format instantly. Fast, accurate, and developer-friendly API.",
+  keywords: [
+    "data extraction",
+    "JSON transformation",
+    "AI data parsing",
+    "unstructured data",
+    "data conversion API",
+    "text to JSON",
+    "data structuring",
+    "API integration",
+    "machine learning data extraction",
+  ],
+  authors: [{ name: "Ucokman", url: "https://fafa.ucokman.web.id" }],
+  creator: "Ucokman",
+  publisher: "Ucokman",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://fafa.ucokman.web.id",
+    title: "Fafa - AI-Powered Data Extraction & JSON Transformation API",
+    description:
+      "Transform unstructured data into structured JSON with AI. Extract information from text, documents, and convert it into your desired format instantly.",
+    siteName: "Fafa",
+    // images: [
+    //   {
+    //     url: "https://fafa.ucokman.web.id/og-image.png",
+    //     width: 1200,
+    //     height: 630,
+    //     alt: "Fafa - Data Extraction API",
+    //   },
+    // ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Fafa - AI-Powered Data Extraction & JSON Transformation API",
+    description:
+      "Transform unstructured data into structured JSON with AI. Fast, accurate, and developer-friendly.",
+    // images: ["https://fafa.ucokman.web.id/og-image.png"],
+    creator: "@ucokman",
+  },
+  alternates: {
+    canonical: "https://fafa.ucokman.web.id",
+  },
+  category: "technology",
 };
 
 export default function RootLayout({
