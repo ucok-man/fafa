@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
-> 🚀 Open Source API Service to transform any unstructured data into clean, valid JSON with custom schema definitions.
+> 🚀 API Service to transform any unstructured data into clean, valid JSON with custom schema definitions.
 
 ## 🔗 Links
 
